@@ -1,1 +1,327 @@
-# Epic-Fidget-Hunt
+
+local InsertedObjects = Instance.new("ScreenGui")
+local ImageLabel = Instance.new("ImageLabel")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local Button2 = Instance.new("ImageButton")
+local BtnText = Instance.new("TextLabel")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local UIGradient = Instance.new("UIGradient")
+local CloseButton = Instance.new("ImageButton")
+local UIGradient_2 = Instance.new("UIGradient")
+local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+local ImageButton = Instance.new("ImageButton")
+
+--Properties:
+
+InsertedObjects.Name = "InsertedObjects"
+InsertedObjects.Parent = game.CoreGui
+InsertedObjects.ResetOnSpawn = false
+
+ImageLabel.Parent = InsertedObjects
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.Position = UDim2.new(0.0394712277, 0, 0.104501605, 0)
+ImageLabel.Size = UDim2.new(0, 755, 0, 492)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=7402946493"
+
+ScrollingFrame.Parent = ImageLabel
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScrollingFrame.BackgroundTransparency = 1.000
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.Position = UDim2.new(0.36953643, 0, 0.380081296, 0)
+ScrollingFrame.Size = UDim2.new(0, 195, 0, 243)
+
+Button2.Name = "Button 2"
+Button2.Parent = ScrollingFrame
+Button2.AnchorPoint = Vector2.new(1, 1)
+Button2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Button2.BackgroundTransparency = 1.000
+Button2.Position = UDim2.new(0.945403278, 0, 0.0641059503, 0)
+Button2.Size = UDim2.new(0.882225692, 0, 0.0763209537, 0)
+Button2.Image = "rbxassetid://2790382281"
+Button2.ImageColor3 = Color3.fromRGB(26, 190, 190)
+Button2.ScaleType = Enum.ScaleType.Slice
+Button2.SliceCenter = Rect.new(4, 4, 252, 252)
+
+BtnText.Name = "BtnText"
+BtnText.Parent = Button2
+BtnText.AnchorPoint = Vector2.new(0.5, 0.5)
+BtnText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BtnText.BackgroundTransparency = 1.000
+BtnText.BorderSizePixel = 0
+BtnText.Position = UDim2.new(0.498592883, 0, 0.550041258, 0)
+BtnText.Size = UDim2.new(0.891457498, -5, 0.59266752, -5)
+BtnText.Font = Enum.Font.GothamBlack
+BtnText.Text = "FINISH GAME"
+BtnText.TextColor3 = Color3.fromRGB(255, 255, 255)
+BtnText.TextScaled = true
+BtnText.TextSize = 5.000
+BtnText.TextWrapped = true
+
+UIAspectRatioConstraint.Parent = Button2
+UIAspectRatioConstraint.AspectRatio = 3.042
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(19, 143, 143)), ColorSequenceKeypoint.new(0.98, Color3.fromRGB(19, 143, 143)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))}
+UIGradient.Offset = Vector2.new(-0.349999994, 0)
+UIGradient.Rotation = -135
+UIGradient.Parent = Button2
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = ImageLabel
+CloseButton.AnchorPoint = Vector2.new(0.5, 0.5)
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.BackgroundTransparency = 1.000
+CloseButton.BorderSizePixel = 0
+CloseButton.Position = UDim2.new(0.628071308, 0, 0.122769609, 0)
+CloseButton.Size = UDim2.new(0.0927402824, 0, 0.0778043792, 0)
+CloseButton.Image = "http://www.roblox.com/asset/?id=7400386959"
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 136, 255))}
+UIGradient_2.Offset = Vector2.new(-0.349999994, 0)
+UIGradient_2.Rotation = -135
+UIGradient_2.Parent = CloseButton
+
+UIAspectRatioConstraint_2.Parent = CloseButton
+UIAspectRatioConstraint_2.AspectRatio = 2.000
+
+ImageButton.Parent = InsertedObjects
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageButton.BackgroundTransparency = 1.000
+ImageButton.Position = UDim2.new(0.416326493, 0, 0, 0)
+ImageButton.Size = UDim2.new(0, 123, 0, 60)
+ImageButton.Image = "http://www.roblox.com/asset/?id=7529900564"
+
+-- Scripts:
+
+local function YZEDYQN_fake_script() -- ImageLabel.LocalScript 
+	local script = Instance.new('LocalScript', ImageLabel)
+
+	
+	local UIS = game:GetService('UserInputService')
+	
+	local frame = script.Parent
+	
+	
+	
+	local dragToggle = nil
+	
+	local dragSpeed = 0.25
+	
+	local dragStart = nil
+	
+	local startPos = nil
+	
+	
+	
+	local function updateInput(input)
+	
+		local delta = input.Position - dragStart
+	
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+	
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	
+		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	
+	end
+	
+	
+	
+	frame.InputBegan:Connect(function(input)
+	
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+	
+			dragToggle = true
+	
+			dragStart = input.Position
+	
+			startPos = frame.Position
+	
+			input.Changed:Connect(function()
+	
+				if input.UserInputState == Enum.UserInputState.End then
+	
+					dragToggle = false
+	
+				end
+	
+			end)
+	
+		end
+	
+	end)
+	
+	
+	
+	UIS.InputChanged:Connect(function(input)
+	
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+	
+			if dragToggle then
+	
+				updateInput(input)
+	
+			end
+	
+		end
+	
+	end)
+	
+	
+	
+	
+end
+coroutine.wrap(YZEDYQN_fake_script)()
+local function XKQNTJO_fake_script() -- ImageLabel.LocalScript 
+	local script = Instance.new('LocalScript', ImageLabel)
+
+	while true do
+		script.Parent.BackgroundColor3 = Color3.new (255, 176, 0)
+		wait(.7)
+		script.Parent.BackgroundColor3 = Color3.new (0, 255, 0)
+		wait(.7)
+		script.Parent.BackgroundColor3 = Color3.new (255, 0, 0)
+		wait(.7)
+		script.Parent.BackgroundColor3 = Color3.new (170, 85, 0)
+		wait(.7)
+		script.Parent.BackgroundColor3 = Color3.new (106, 57, 9)
+		wait(.7)
+		script.Parent.BackgroundColor3 = Color3.new (0, 16, 176)
+		wait(.7)
+	end
+end
+coroutine.wrap(XKQNTJO_fake_script)()
+local function JPLOJ_fake_script() -- Button2.Button7Script 
+	local script = Instance.new('LocalScript', Button2)
+
+	local btn = script.Parent
+	local uiGradient = btn:WaitForChild("UIGradient")
+	
+	local isHovering = false
+	
+	local tweenService = game:GetService("TweenService")
+	local tweenInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint, Enum.EasingDirection.InOut)
+	
+	local gradientRestoreTween = tweenService:Create(uiGradient, tweenInfo, {Offset = Vector2.new(-0.35, 0)})
+	local gradientAddTween = tweenService:Create(uiGradient, tweenInfo, {Offset = Vector2.new(1, 0)})
+	
+	
+	btn.MouseEnter:Connect(function()
+		
+		isHovering = true
+		
+		gradientAddTween:Play()
+	end)
+	
+	btn.MouseLeave:Connect(function()
+		
+		isHovering = false
+		
+		gradientRestoreTween:Play()
+	end)
+	
+	btn.MouseButton1Down:Connect(function()
+		
+		gradientRestoreTween:Play()
+	end)
+	
+	btn.MouseButton1Up:Connect(function()
+		
+		if not isHovering then
+			gradientRestoreTween:Play()
+		else
+			gradientAddTween:Play()
+		end
+	end)
+end
+coroutine.wrap(JPLOJ_fake_script)()
+local function XHKYJI_fake_script() -- Button2.METAB SCRIPT 
+	local script = Instance.new('LocalScript', Button2)
+
+	
+	script.Parent.MouseButton1Down:connect(function()
+	
+				while true do 
+					wait()
+					for _,v in pairs(workspace.FallUpdate:GetDescendants()) do
+						if v:IsA("TouchTransmitter") then
+							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0) --0 is touch
+							wait()
+							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1) -- 1
+		
+							
+				for _,v in pairs(workspace.Fidgets:GetDescendants()) do
+					if v:IsA("TouchTransmitter") then
+						firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0) --0 is touch
+							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1) -- 1 is untouch
+						end
+					end
+				end
+	
+			end
+				end
+			end)
+end
+coroutine.wrap(XHKYJI_fake_script)()
+local function BWSVC_fake_script() -- CloseButton.LocalScript 
+	local script = Instance.new('LocalScript', CloseButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Visible = false
+	end)
+end
+coroutine.wrap(BWSVC_fake_script)()
+local function LZWN_fake_script() -- CloseButton.ANIME 
+	local script = Instance.new('LocalScript', CloseButton)
+
+	local btn = script.Parent
+	local uiGradient = btn:WaitForChild("UIGradient")
+	
+	local isHovering = false
+	
+	local tweenService = game:GetService("TweenService")
+	local tweenInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint, Enum.EasingDirection.InOut)
+	
+	local gradientRestoreTween = tweenService:Create(uiGradient, tweenInfo, {Offset = Vector2.new(-0.35, 0)})
+	local gradientAddTween = tweenService:Create(uiGradient, tweenInfo, {Offset = Vector2.new(1, 0)})
+	
+	
+	btn.MouseEnter:Connect(function()
+		
+		isHovering = true
+		
+		gradientAddTween:Play()
+	end)
+	
+	btn.MouseLeave:Connect(function()
+		
+		isHovering = false
+		
+		gradientRestoreTween:Play()
+	end)
+	
+	btn.MouseButton1Down:Connect(function()
+		
+		gradientRestoreTween:Play()
+	end)
+	
+	btn.MouseButton1Up:Connect(function()
+		
+		if not isHovering then
+			gradientRestoreTween:Play()
+		else
+			gradientAddTween:Play()
+		end
+	end)
+end
+coroutine.wrap(LZWN_fake_script)()
+local function LFPA_fake_script() -- ImageButton.LocalScript 
+	local script = Instance.new('LocalScript', ImageButton)
+
+	script.Parent.MouseButton1Click:connect(function()
+		script.Parent.Parent.ImageLabel.Visible = not script.Parent.Parent.ImageLabel.Visible
+	end)
+	
+end
+coroutine.wrap(LFPA_fake_script)()
